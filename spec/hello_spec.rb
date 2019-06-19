@@ -59,6 +59,7 @@ RSpec.describe Hello do
   
   # be_xxx(predicateマッチャ) → メソッド名が「?」で終わり、戻り値がfrue/falseを示すメソッドのときに使える.
   
+  
   it{expect([].empty?).to be true}
   it{expect([]).to be_empty}
   it{expect([2]).not_to be_empty}
@@ -152,6 +153,7 @@ RSpec.describe Hello do
   it{expect(x).to include(1)}
   it{expect(x).to include(2,3)}
   
+  
   h = {name:"taro",age: 4,email: "taro@example.com"}
   
   it{expect(h).to include(:name)}
@@ -162,6 +164,8 @@ RSpec.describe Hello do
   
   it{expect(str).to include("Bob")}
   it{expect(str).to include("h","e","b","o")}
+  it{expect(str).to include("'"," ", "\s")}
+  
   
   
   # raise_error "エラーメッセージ or エラークラス" → 「エラーが起きること」を検証
@@ -172,6 +176,7 @@ RSpec.describe Hello do
   it{expect{1/0}.to raise_error(ZeroDivisionError)}
   # エラーのクラスを指定しなくても正常に動作する。
   it{expect{1/0}.to raise_error}
+  it{expect{1/1}.not_to raise_error}
   
 
 end
